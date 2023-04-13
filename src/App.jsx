@@ -6,9 +6,9 @@ import AppRoute from './routes/routes';
 
 function App() {
   return (
-    <div>
+    <>
       <AppRoute />
-    </div>
+    </>
   );
 }
 
