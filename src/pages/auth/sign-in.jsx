@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardHeader,
@@ -8,7 +8,7 @@ import {
   Checkbox,
   Button,
   Typography,
-} from "@material-tailwind/react";
+} from '@material-tailwind/react';
 
 export function SignIn() {
   return (
@@ -23,32 +23,44 @@ export function SignIn() {
           <CardHeader
             variant="gradient"
             color="blue"
-            className="mb-4 grid h-28 place-items-center"
-          >
-            <Typography variant="h3" color="white">
+            className="mb-4 grid h-28 place-items-center">
+            <Typography
+              variant="h3"
+              color="white">
               Sign In
             </Typography>
           </CardHeader>
           <CardBody className="flex flex-col gap-4">
-            <Input type="email" label="Email" size="lg" />
-            <Input type="password" label="Password" size="lg" />
+            <Input
+              type="email"
+              label="Email"
+              size="lg"
+            />
+            <Input
+              type="password"
+              label="Password"
+              size="lg"
+            />
             <div className="-ml-2.5">
               <Checkbox label="Remember Me" />
             </div>
           </CardBody>
           <CardFooter className="pt-0">
-            <Button variant="gradient" fullWidth>
+            <Button
+              variant="gradient"
+              fullWidth>
               Sign In
             </Button>
-            <Typography variant="small" className="mt-6 flex justify-center">
+            <Typography
+              variant="small"
+              className="mt-6 flex justify-center">
               Don't have an account?
               <Link to="/auth/sign-up">
                 <Typography
                   as="span"
                   variant="small"
                   color="blue"
-                  className="ml-1 font-bold"
-                >
+                  className="ml-1 font-bold">
                   Sign up
                 </Typography>
               </Link>
