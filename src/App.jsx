@@ -16,7 +16,7 @@ function App() {
         path="*"
         element={
           <Navigate
-            to="/dashboard/janitors"
+            to="/auth/sign-in"
             replace
           />
         }

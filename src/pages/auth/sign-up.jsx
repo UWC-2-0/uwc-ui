@@ -50,11 +50,14 @@ export function SignUp() {
             </div>
           </CardBody>
           <CardFooter className="pt-0">
-            <Button
-              variant="gradient"
-              fullWidth>
-              Sign Up
-            </Button>
+            <a href="/dashboard/janitors">
+              <Button
+                variant="gradient"
+                fullWidth>
+                Sign Up
+              </Button>
+            </a>
+
             <Typography
               variant="small"
               className="mt-6 flex justify-center">
