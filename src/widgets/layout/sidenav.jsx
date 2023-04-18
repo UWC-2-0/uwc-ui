@@ -102,7 +102,7 @@ export function Sidenav({ brandImg, brandName, routes }) {
 }
 
 Sidenav.defaultProps = {
-  brandImg: '/img/logo-ct.png',
+  brandImg: '',
   brandName: 'UWC 2',
 };
 

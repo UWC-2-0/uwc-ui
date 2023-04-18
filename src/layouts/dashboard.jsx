@@ -19,9 +19,7 @@ export function Dashboard() {
       <Sidenav
         routes={routes}
         brandName="UWC 2.0"
-        brandImg={
-          sidenavType === 'dark' ? '/img/logo-ct.png' : '/img/logo-ct-dark.png'
-        }
+        brandImg={sidenavType === 'dark' ? '' : ''}
       />
       <div className="p-4 xl:ml-80">
         <DashboardNavbar />
