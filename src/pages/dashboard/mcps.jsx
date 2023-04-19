@@ -11,14 +11,20 @@ import {
 import { EllipsisVerticalIcon } from '@heroicons/react/24/outline';
 import { authorsTableData, projectsTableData } from '@/data';
 
-export function MCPs() {
-  return (
+import {
+  Chart,
+  initTE,
+} from "tw-elements";
 
+initTE({ Chart });
+
+export function MCPs() {
+
+  return (
     <div class="flex flex-col overflow-x-auto">
       <h5 class="mb-2 mt-0 text-xl font-medium leading-tight text-primary">Statistics</h5>
       <div>
         <div class="container my-24 px-6 mx-auto">
-
           <section class="mb-32 text-gray-800 text-center">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-x-0 items-center">
               <div class="mb-12 lg:mb-0 relative">
@@ -90,10 +96,19 @@ export function MCPs() {
         </div>
       </div>
 
-      <h5 class="mb-2 mt-0 text-xl font-medium leading-tight text-primary">MCPs Status</h5>
-
       <h5 class="mb-2 mt-0 text-xl font-medium leading-tight text-primary">Total expense</h5>
-
+      <div class="mx-auto w-3/5 overflow-hidden">
+        <div class="mx-auto w-3/5 overflow-hidden">
+          Table
+          <canvas
+            data-te-chart="bar"
+            data-te-dataset-label="$ Operation cost (VND)"
+            data-te-labels="['Monday', 'Tuesday' , 'Wednesday' , 'Thursday' , 'Friday' , 'Saturday' , 'Sunday ']"
+            data-te-dataset-data="[2112, 2343, 2545, 2500, 2365, 3700, 3423]">
+          </canvas>
+          {/* table */}
+        </div>
+      </div>
 
       <h5 class="mb-2 mt-0 text-xl font-medium leading-tight text-primary">MCPs Detail</h5>
       <div class="sm:-mx-6 lg:-mx-8">
@@ -106,40 +121,178 @@ export function MCPs() {
                   <th scope="col" class="px-6 py-4">Location</th>
                   <th scope="col" class="px-6 py-4">Usage</th>
                   <th scope="col" class="px-6 py-4">Activity</th>
-                  <th scope="col" class="px-6 py-4">Action</th>
                   <th scope="col" class="px-6 py-4">Update</th>
+                  <th scope="col" class="px-6 py-4">Delete</th>
                 </tr>
               </thead>
               <tbody>
                 <tr class="border-b dark:border-neutral-500">
                   <td class="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                  <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                  <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                  <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                  <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                  <td class="whitespace-nowrap px-6 py-4">Cell</td>
+                  <td class="whitespace-nowrap px-6 py-4">268 Ly Thuong Kiet</td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <div class="w-full bg-neutral-200 dark:bg-neutral-600 mcp-bg-percentage">
+                      <div class="bg-primary p-0.5 text-center text-xs font-medium leading-none text-primary-100 mcp-90-percentage">90%</div>
+                    </div>
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <div>Last login</div>
+                    <h6 class="mb-2 mt-0 text-base font-medium leading-tight text-primary">
+                      10s ago
+                    </h6>
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <button
+                      type="button"
+                      class="inline-block rounded bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]">
+                      Update
+                    </button>
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <button
+                      type="button"
+                      class="inline-block rounded bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                      Delete
+                    </button>
+                  </td>
                 </tr>
                 <tr class="border-b dark:border-neutral-500">
                   <td class="whitespace-nowrap px-6 py-4 font-medium ">2</td>
-                  <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                  <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                  <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                  <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                  <td class="whitespace-nowrap px-6 py-4">Cell</td>
+                  <td class="whitespace-nowrap px-6 py-4">497 Hoa Hao</td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <div class="w-full bg-neutral-200 dark:bg-neutral-600 mcp-bg-percentage">
+                      <div class="bg-primary p-0.5 text-center text-xs font-medium leading-none text-primary-100 mcp-40-percentage">40%</div>
+                    </div>
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <div>Last login</div>
+                    <h6 class="mb-2 mt-0 text-base font-medium leading-tight text-primary">
+                      10 minutes ago
+                    </h6>
+
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <button
+                      type="button"
+                      class="inline-block rounded bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]">
+                      Update
+                    </button>
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <button
+                      type="button"
+                      class="inline-block rounded bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                      Delete
+                    </button>
+                  </td>
                 </tr>
                 <tr class="border-b ">
                   <td class="whitespace-nowrap px-6 py-4 font-medium ">3</td>
-                  <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                  <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                  <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                  <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                  <td class="whitespace-nowrap px-6 py-4">Cell</td>
+                  <td class="whitespace-nowrap px-6 py-4">212 Ba Thang Hai</td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <div class="w-full bg-neutral-200 dark:bg-neutral-600 mcp-bg-percentage">
+                      <div class="bg-primary p-0.5 text-center text-xs font-medium leading-none text-primary-100 mcp-60-percentage">60%</div>
+                    </div>
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <div>Last login</div>
+                    <h6 class="mb-2 mt-0 text-base font-medium leading-tight text-primary">
+                      3 hours ago
+                    </h6>
+
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <button
+                      type="button"
+                      class="inline-block rounded bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]">
+                      Update
+                    </button>
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <button
+                      type="button"
+                      class="inline-block rounded bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+                <tr class="border-b ">
+                  <td class="whitespace-nowrap px-6 py-4 font-medium ">4</td>
+                  <td class="whitespace-nowrap px-6 py-4">999 Nguyen Thi Nho</td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <div class="w-full bg-neutral-200 dark:bg-neutral-600 mcp-bg-percentage">
+                      <div class="bg-primary p-0.5 text-center text-xs font-medium leading-none text-primary-100 mcp-35-percentage">35%</div>
+                    </div>
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <div>Last login</div>
+                    <h6 class="mb-2 mt-0 text-base font-medium leading-tight text-primary">
+                      1 hour ago
+                    </h6>
+
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <button
+                      type="button"
+                      class="inline-block rounded bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]">
+                      Update
+                    </button>
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <button
+                      type="button"
+                      class="inline-block rounded bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
+
+      <nav aria-label="Page navigation example">
+        <ul class="list-style-none flex">
+          <li>
+            <a
+              class="pointer-events-none relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-500 transition-all duration-300 dark:text-neutral-400"
+            >Previous</a
+            >
+          </li>
+          <li>
+            <a
+              class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100  dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+              href="#!"
+            >1</a
+            >
+          </li>
+          <li aria-current="page">
+            <a
+              class="relative block rounded bg-primary-100 px-3 py-1.5 text-sm font-medium text-primary-700 transition-all duration-300"
+              href="#!"
+            >2
+              <span
+                class="absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0 [clip:rect(0,0,0,0)]"
+              >(current)</span
+              >
+            </a>
+          </li>
+          <li>
+            <a
+              class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+              href="#!"
+            >3</a
+            >
+          </li>
+          <li>
+            <a
+              class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+              href="#!"
+            >Next</a
+            >
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }
