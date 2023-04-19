@@ -27,8 +27,8 @@ export function Sidenav({ brandImg, brandName, routes }) {
         className={`relative border-b ${
           sidenavType === 'dark' ? 'border-white/20' : 'border-blue-gray-50'
         }`}>
-        <Link
-          to="/"
+        <a
+          href="/dashboard"
           className="flex items-center gap-4 py-6 px-8">
           <Avatar
             src={brandImg}
@@ -39,7 +39,7 @@ export function Sidenav({ brandImg, brandName, routes }) {
             color={sidenavType === 'dark' ? 'white' : 'blue-gray'}>
             {brandName}
           </Typography>
-        </Link>
+        </a>
         <IconButton
           variant="text"
           color="white"
@@ -102,7 +102,7 @@ export function Sidenav({ brandImg, brandName, routes }) {
 }
 
 Sidenav.defaultProps = {
-  brandImg: '',
+  brandImg: '/img/logo-ct.png',
   brandName: 'UWC 2',
 };
 

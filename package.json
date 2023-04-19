@@ -17,6 +17,7 @@
     "@mui/material": "^5.12.0",
     "@mui/styled-engine-sc": "^5.12.0",
     "i": "^0.3.7",
+    "material-react-table": "^1.10.0",
     "npm": "^9.6.4",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",

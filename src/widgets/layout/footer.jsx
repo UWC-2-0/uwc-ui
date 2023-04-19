@@ -18,7 +18,7 @@ export function Footer({ brandName, brandLink, routes }) {
             className="transition-colors hover:text-blue-500">
             {brandName}
           </a>{' '}
-          for a better web.
+          for Trash Collect management.
         </Typography>
         {/* <ul className="flex items-center gap-4">
           {routes.map(({ name, path }) => (
@@ -41,7 +41,7 @@ export function Footer({ brandName, brandLink, routes }) {
 Footer.defaultProps = {
   brandName: 'UWC 2.0',
   brandLink: '',
-  routes: [{ name: 'UWC', path: 'https://www.creative-tim.com/license' }],
+  routes: [{ name: 'UWC', path: '' }],
 };
 
 Footer.propTypes = {

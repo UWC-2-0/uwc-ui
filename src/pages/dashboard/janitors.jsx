@@ -1,4 +1,5 @@
 import React from 'react';
+import CrudJanitors from './crudComponents/CrudJanitors';
 // import {
 //   Typography,
 //   Card,
@@ -33,7 +34,11 @@ import React from 'react';
 }
 
 export function Janitors() {
-  return <div className="mt-12">Page view Janitors Status here</div>;
+  return (
+    <div className="mt-12">
+      <CrudJanitors />
+    </div>
+  );
 }
 
 export default Janitors;
