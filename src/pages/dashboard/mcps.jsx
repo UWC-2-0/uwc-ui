@@ -1,3 +1,6 @@
+import { Card, CardHeader, CardBody, Typography, Avatar, Chip, Tooltip, Progress, } from '@material-tailwind/react';
+import { EllipsisVerticalIcon } from '@heroicons/react/24/outline';
+import { authorsTableData, projectsTableData } from '@/data';
 import mcpsData from '../../data/mcps-data';
 import React, { useEffect, useState } from 'react';
 import Posts from '../../components/posts';
@@ -48,6 +51,7 @@ export function MCPs() {
   const addHandle = () => {
     setPosts([...posts, {
       id: posts.length + 1,
+      checkbox: "uncheck",
       name: formData1.name,
       location: formData1.location,
       date: date,
