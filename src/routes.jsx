@@ -1,12 +1,11 @@
 import {
-  HomeIcon,
-  UserCircleIcon,
-  TableCellsIcon,
-  BellIcon,
+  ArchiveBoxIcon,
+  UserGroupIcon,
   ArrowRightOnRectangleIcon,
+  TruckIcon,
   UserPlusIcon,
 } from '@heroicons/react/24/solid';
-import { Janitors, Collectors, MCPs, Notifications } from '@/pages/dashboard';
+import { Janitors, Collectors, MCPs } from '@/pages/dashboard';
 import { SignIn, SignUp } from '@/pages/auth';
 
 const icon = {
@@ -18,28 +17,22 @@ export const routes = [
     layout: 'dashboard',
     pages: [
       {
-        icon: <HomeIcon {...icon} />,
+        icon: <UserGroupIcon {...icon} />,
         name: 'Janitors',
         path: '/janitors',
         element: <Janitors />,
       },
       {
-        icon: <UserCircleIcon {...icon} />,
+        icon: <TruckIcon {...icon} />,
         name: 'Collectors',
         path: '/collectors',
         element: <Collectors />,
       },
       {
-        icon: <TableCellsIcon {...icon} />,
+        icon: <ArchiveBoxIcon {...icon} />,
         name: 'MCPs',
         path: '/mcps',
         element: <MCPs />,
-      },
-      {
-        icon: <BellIcon {...icon} />,
-        name: 'notifactions',
-        path: '/notifactions',
-        element: <Notifications />,
       },
     ],
   },
