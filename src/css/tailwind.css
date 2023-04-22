@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.mcp-bg-primary {
+    background-color: #3B71CA;
+}
+
+.mcp-bg-warning {
+    background-color: #E4A11C;
+}
+
+    
