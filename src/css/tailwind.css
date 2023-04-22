@@ -10,19 +10,11 @@
     background-color: #E4A11C;
 }
 
-.mcp-bg-success {
-    background-color: #15A44D;
-}
-
 .mcp-btn-secondary {
     background-color: #E3EBF7;
     color: #285192;
 }
 
-.red-bg {
-    background-color: red;
-}
-
-.my-border {
+.mcp-border {
     border: 1px solid #ccc;
 }

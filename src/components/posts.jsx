@@ -1,9 +1,5 @@
 import React from 'react'
-const Posts = ({ posts, loading, removeHandle, switchUpdating }) => {
-    if (loading) {
-        return <h2>Loading...</h2>;
-    }
-
+const Posts = ({ posts, removeHandle, switchUpdating }) => {
     return (
         <div class="flex flex-col overflow-x-auto">
             <div class="sm:-mx-6 lg:-mx-8">
@@ -48,7 +44,6 @@ const Posts = ({ posts, loading, removeHandle, switchUpdating }) => {
                                         </tr>
                                     ))
                                 }
-
                             </tbody>
                         </table>
                     </div>

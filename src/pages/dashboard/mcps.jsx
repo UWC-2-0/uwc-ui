@@ -17,30 +17,21 @@ initTE({ Modal, Ripple, Input });
 
 export function MCPs() {
   const [posts, setPosts] = useState(mcpsData)
-  const [loading, setLoading] = useState(false)
-
   const [currentPage, setCurrentPage] = useState(1)
   const [postsPerPage] = useState(10)
-
-
   const indexOfLastPost = currentPage * postsPerPage
   const indexOfFirstPost = indexOfLastPost - postsPerPage
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
+  const current = new Date();
+  const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
+  const [formData, setFormData] = useState({ name: '', location: '', date: '', status: '' });
+  const [formData1, setFormData1] = useState({ name: '', location: '' });
+  const [idxCurrent, setIdxCurrent] = useState(0);
 
   const paginate = pageNumber => setCurrentPage(pageNumber)
   const removeHandle = (index) => {
     setPosts(posts.filter((post, idx) => idx !== index));
   }
-
-  const [displayFormAdd, setDisplayFormAdd] = useState('none')
-
-  const current = new Date();
-  const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
-
-  const [formData, setFormData] = useState({ name: '', location: '', date: '', status: '' });
-  const [formData1, setFormData1] = useState({ name: '', location: '' });
-
-  const [idxCurrent, setIdxCurrent] = useState(0);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -86,7 +77,7 @@ export function MCPs() {
       </button>
 
 
-      <Posts posts={currentPosts} loading={loading} removeHandle={removeHandle} switchUpdating={switchUpdating} />
+      <Posts posts={currentPosts} removeHandle={removeHandle} switchUpdating={switchUpdating} />
       <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} _paginate={paginate} />
 
       <div
@@ -124,7 +115,7 @@ export function MCPs() {
                           name="name"
                           value={formData.name}
                           onChange={handleInputChange}
-                          class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 my-border"
+                          class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 mcp-border"
                           id="exampleFormControlInput001"
                           placeholder="Example label" />
                       </div>
@@ -138,7 +129,7 @@ export function MCPs() {
                           name="location"
                           value={formData.location}
                           onChange={handleInputChange}
-                          class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 my-border"
+                          class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 mcp-border"
                           id="exampleFormControlInput002"
                           placeholder="Location" />
                       </div>
@@ -152,7 +143,7 @@ export function MCPs() {
                           name="date"
                           value={formData.date}
                           onChange={handleInputChange}
-                          class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 my-border"
+                          class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 mcp-border"
                           id="exampleFormControlInput002"
                           placeholder="Location" />
                       </div>
@@ -166,7 +157,7 @@ export function MCPs() {
                           name="status"
                           value={formData.status}
                           onChange={handleInputChange}
-                          class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 my-border"
+                          class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 mcp-border"
                           id="exampleFormControlInput002"
                           placeholder="Location" />
                       </div>
@@ -233,7 +224,7 @@ export function MCPs() {
                           name="name"
                           value={formData1.name}
                           onChange={handleInputChange1}
-                          class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 my-border"
+                          class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 mcp-border"
                           id="exampleFormControlInput1"
                           placeholder="Name" />
                       </div>
@@ -246,7 +237,7 @@ export function MCPs() {
                           name="location"
                           value={formData1.location}
                           onChange={handleInputChange1}
-                          class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 my-border"
+                          class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 mcp-border"
                           id="exampleFormControlInput1"
                           placeholder="Location" />
                       </div>
