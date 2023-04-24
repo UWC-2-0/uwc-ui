@@ -5,7 +5,7 @@ const Posts = ({ posts, removeHandle, switchUpdating }) => {
       <div class="sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
           <div class="overflow-x-auto">
-            <table class="min-w-full text-left text-sm font-light">
+            <table class="min-w-full text-left text-sm font-normal">
               <thead class="border-b font-medium dark:border-neutral-500">
                 <tr>
                   <th

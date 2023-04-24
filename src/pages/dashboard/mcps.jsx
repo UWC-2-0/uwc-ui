@@ -1,37 +1,48 @@
-import { Card, CardHeader, CardBody, Typography, Avatar, Chip, Tooltip, Progress, } from '@material-tailwind/react';
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Typography,
+  Avatar,
+  Chip,
+  Tooltip,
+  Progress,
+} from '@material-tailwind/react';
 import { EllipsisVerticalIcon } from '@heroicons/react/24/outline';
 // import { authorsTableData, projectsTableData } from '@/data';
 import mcpsData from '../../data/mcps-data';
 import React, { useEffect, useState } from 'react';
 import Posts from '../../components/posts';
-import Pagination from '../../components/Pagination'
+import Pagination from '../../components/Pagination';
 import { func } from 'prop-types';
-import {
-  Modal,
-  Ripple,
-  Input,
-  initTE,
-} from "tw-elements";
+import { Modal, Ripple, Input, initTE } from 'tw-elements';
 
 initTE({ Modal, Ripple, Input });
 
 export function MCPs() {
-  const [posts, setPosts] = useState(mcpsData)
-  const [currentPage, setCurrentPage] = useState(1)
-  const [postsPerPage] = useState(10)
-  const indexOfLastPost = currentPage * postsPerPage
-  const indexOfFirstPost = indexOfLastPost - postsPerPage
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
+  const [posts, setPosts] = useState(mcpsData);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(10);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
   const current = new Date();
-  const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
-  const [formData, setFormData] = useState({ name: '', location: '', date: '', status: '' });
+  const date = `${current.getDate()}/${
+    current.getMonth() + 1
+  }/${current.getFullYear()}`;
+  const [formData, setFormData] = useState({
+    name: '',
+    location: '',
+    date: '',
+    status: '',
+  });
   const [formData1, setFormData1] = useState({ name: '', location: '' });
   const [idxCurrent, setIdxCurrent] = useState(0);
 
-  const paginate = pageNumber => setCurrentPage(pageNumber)
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const removeHandle = (index) => {
     setPosts(posts.filter((post, idx) => idx !== index));
-  }
+  };
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -39,32 +50,40 @@ export function MCPs() {
 
   const handleInputChange1 = (e) => {
     setFormData1({ ...formData1, [e.target.name]: e.target.value });
-  }
+  };
 
   const addHandle = () => {
-    setPosts([...posts, {
-      id: posts.length + 1,
-      checkbox: "uncheck",
-      name: formData1.name,
-      location: formData1.location,
-      date: date,
-      status: "New"
-    }])
-    setFormData1({ name: '', location: '' })
+    setPosts([
+      ...posts,
+      {
+        id: posts.length + 1,
+        checkbox: 'uncheck',
+        name: formData1.name,
+        location: formData1.location,
+        date: date,
+        status: 'New',
+      },
+    ]);
+    setFormData1({ name: '', location: '' });
   };
 
   const updateHandle = () => {
-    posts[idxCurrent].name = formData.name
-    posts[idxCurrent].location = formData.location
-    posts[idxCurrent].date = formData.date
-    posts[idxCurrent].status = formData.status
-    setFormData({ name: '', location: '' })
-  }
+    posts[idxCurrent].name = formData.name;
+    posts[idxCurrent].location = formData.location;
+    posts[idxCurrent].date = formData.date;
+    posts[idxCurrent].status = formData.status;
+    setFormData({ name: '', location: '' });
+  };
 
   const switchUpdating = (index, name, location, date1, status1) => {
-    setFormData({ name: name, location: location, date: date1, status: status1 })
-    setIdxCurrent(index)
-  }
+    setFormData({
+      name: name,
+      location: location,
+      date: date1,
+      status: status1,
+    });
+    setIdxCurrent(index);
+  };
 
   return (
     <div className="bg-white shadow-xl mt-12 pb-2">
@@ -76,9 +95,16 @@ export function MCPs() {
         CREATE MCP
       </button>
 
-
-      <Posts posts={currentPosts} removeHandle={removeHandle} switchUpdating={switchUpdating} />
-      <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} _paginate={paginate} />
+      <Posts
+        posts={currentPosts}
+        removeHandle={removeHandle}
+        switchUpdating={switchUpdating}
+      />
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={posts.length}
+        _paginate={paginate}
+      />
 
       <div
         data-te-modal-init
@@ -87,13 +113,11 @@ export function MCPs() {
         tabIndex="-1"
         aria-labelledby="exampleModalFullscreenLabel"
         aria-hidden="true">
-
         <div
           data-te-modal-dialog-ref
           className="pointer-events-none relative w-auto rounded translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[0px]:m-0 min-[0px]:h-full min-[0px]:max-w-none">
           <div className="pointer-events-auto relative flex w-full flex-col rounded-md bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 min-[0px]:h-full min-[0px]:rounded-none min-[0px]:border-0">
-            <div
-              className="mt-12 flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50 min-[0px]:rounded-none">
+            <div className="mt-12 flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50 min-[0px]:rounded-none">
               <h5
                 className="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
                 id="exampleModalFullscreenLabel">
@@ -104,11 +128,15 @@ export function MCPs() {
             <div className="relative p-4 min-[0px]:overflow-y-auto">
               <div className="flex justify-center">
                 <div className="block max-w-xl rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-                  <div >
+                  <div>
                     <form>
-                      <div class="mb-3" data-te-input-wrapper-init>
+                      <div
+                        class="mb-3"
+                        data-te-input-wrapper-init>
                         <div className="ml-2">
-                          <h6 class="mb-1 mt-4 text-base font-medium leading-tight text-primary">Name</h6>
+                          <h6 class="mb-1 mt-4 text-base font-medium leading-tight text-primary">
+                            Name
+                          </h6>
                         </div>
                         <input
                           type="text"
@@ -117,13 +145,18 @@ export function MCPs() {
                           onChange={handleInputChange}
                           class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 mcp-border"
                           id="exampleFormControlInput001"
-                          placeholder="Example label" />
+                          placeholder="Example label"
+                        />
                       </div>
 
                       <div className="ml-2">
-                        <h6 class="mb-1 mt-4 text-base font-medium leading-tight text-primary">Location</h6>
+                        <h6 class="mb-1 mt-4 text-base font-medium leading-tight text-primary">
+                          Location
+                        </h6>
                       </div>
-                      <div class="mb-4" data-te-input-wrapper-init>
+                      <div
+                        class="mb-4"
+                        data-te-input-wrapper-init>
                         <input
                           type="text"
                           name="location"
@@ -131,13 +164,18 @@ export function MCPs() {
                           onChange={handleInputChange}
                           class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 mcp-border"
                           id="exampleFormControlInput002"
-                          placeholder="Location" />
+                          placeholder="Location"
+                        />
                       </div>
 
                       <div className="ml-2">
-                        <h6 class="mb-1 mt-4 text-base font-medium leading-tight text-primary">Date</h6>
+                        <h6 class="mb-1 mt-4 text-base font-medium leading-tight text-primary">
+                          Date
+                        </h6>
                       </div>
-                      <div class="mb-4" data-te-input-wrapper-init>
+                      <div
+                        class="mb-4"
+                        data-te-input-wrapper-init>
                         <input
                           type="text"
                           name="date"
@@ -145,13 +183,18 @@ export function MCPs() {
                           onChange={handleInputChange}
                           class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 mcp-border"
                           id="exampleFormControlInput002"
-                          placeholder="Location" />
+                          placeholder="Location"
+                        />
                       </div>
 
                       <div className="ml-2">
-                        <h6 class="mb-1 mt-4 text-base font-medium leading-tight text-primary">Status</h6>
+                        <h6 class="mb-1 mt-4 text-base font-medium leading-tight text-primary">
+                          Status
+                        </h6>
                       </div>
-                      <div class="mb-4" data-te-input-wrapper-init>
+                      <div
+                        class="mb-4"
+                        data-te-input-wrapper-init>
                         <input
                           type="text"
                           name="status"
@@ -159,17 +202,16 @@ export function MCPs() {
                           onChange={handleInputChange}
                           class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 mcp-border"
                           id="exampleFormControlInput002"
-                          placeholder="Location" />
+                          placeholder="Location"
+                        />
                       </div>
                     </form>
                   </div>
                 </div>
               </div>
-
             </div>
 
-            <div
-              className="mt-auto flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50 min-[0px]:rounded-none">
+            <div className="mt-auto flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50 min-[0px]:rounded-none">
               <button
                 type="button"
                 className="inline-block rounded mcp-btn-secondary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
@@ -184,7 +226,6 @@ export function MCPs() {
                 Update
               </button>
             </div>
-
           </div>
         </div>
       </div>
@@ -199,10 +240,8 @@ export function MCPs() {
         <div
           data-te-modal-dialog-ref
           className="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[0px]:m-0 min-[0px]:h-full min-[0px]:max-w-none">
-          <div
-            className="pointer-events-auto relative flex w-full flex-col rounded-md bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 min-[0px]:h-full min-[0px]:rounded-none min-[0px]:border-0">
-            <div
-              className="mt-12 flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50 min-[0px]:rounded-none">
+          <div className="pointer-events-auto relative flex w-full flex-col rounded-md bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 min-[0px]:h-full min-[0px]:rounded-none min-[0px]:border-0">
+            <div className="mt-12 flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50 min-[0px]:rounded-none">
               <h5
                 className="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
                 id="exampleModalFullscreenLabel">
@@ -213,12 +252,16 @@ export function MCPs() {
             <div className="relative p-4 min-[0px]:overflow-y-auto">
               <div className="flex justify-center">
                 <div className="block max-w-xl rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-                  <div >
+                  <div>
                     <form>
                       <div className="ml-2">
-                        <h6 class="mb-2 mt-0 text-base font-medium leading-tight text-primary">Name</h6>
+                        <h6 class="mb-2 mt-0 text-base font-medium leading-tight text-primary">
+                          Name
+                        </h6>
                       </div>
-                      <div className="mb-4" data-te-input-wrapper-init>
+                      <div
+                        className="mb-4"
+                        data-te-input-wrapper-init>
                         <input
                           type="text"
                           name="name"
@@ -226,12 +269,17 @@ export function MCPs() {
                           onChange={handleInputChange1}
                           class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 mcp-border"
                           id="exampleFormControlInput1"
-                          placeholder="Name" />
+                          placeholder="Name"
+                        />
                       </div>
                       <div className="ml-2">
-                        <h6 class="mb-2 mt-0 text-base font-medium leading-tight text-primary">Location</h6>
+                        <h6 class="mb-2 mt-0 text-base font-medium leading-tight text-primary">
+                          Location
+                        </h6>
                       </div>
-                      <div class="mb-4" data-te-input-wrapper-init>
+                      <div
+                        class="mb-4"
+                        data-te-input-wrapper-init>
                         <input
                           type="text"
                           name="location"
@@ -239,7 +287,8 @@ export function MCPs() {
                           onChange={handleInputChange1}
                           class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 mcp-border"
                           id="exampleFormControlInput1"
-                          placeholder="Location" />
+                          placeholder="Location"
+                        />
                       </div>
                     </form>
                   </div>
@@ -247,9 +296,7 @@ export function MCPs() {
               </div>
             </div>
 
-
-            <div
-              className="mt-auto flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50 min-[0px]:rounded-none">
+            <div className="mt-auto flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50 min-[0px]:rounded-none">
               <button
                 type="button"
                 className="inline-block rounded mcp-btn-secondary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
@@ -264,11 +311,9 @@ export function MCPs() {
                 Add
               </button>
             </div>
-
           </div>
         </div>
       </div>
-
     </div>
   );
 }
