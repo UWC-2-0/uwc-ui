@@ -18,13 +18,13 @@ export const routes = [
     pages: [
       {
         icon: <UserGroupIcon {...icon} />,
-        name: 'Janitors',
+        name: 'janitors',
         path: '/janitors',
         element: <Janitors />,
       },
       {
         icon: <TruckIcon {...icon} />,
-        name: 'Collectors',
+        name: 'collectors',
         path: '/collectors',
         element: <Collectors />,
       },

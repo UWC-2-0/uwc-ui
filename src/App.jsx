@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Dashboard, Auth } from '@/layouts';
+import { Janitors, Collectors, MCPs } from '@/pages/dashboard';
 
 function App() {
   return (
@@ -7,6 +8,10 @@ function App() {
       <Route
         path="/dashboard/*"
         element={<Dashboard />}
+      />
+      <Route
+        path="/dashboard/janitors"
+        element={<Janitors />}
       />
       <Route
         path="/auth/*"
