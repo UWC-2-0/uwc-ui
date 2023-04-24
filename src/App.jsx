@@ -7,8 +7,12 @@ function App() {
     <Routes>
       <Route
         path="/dashboard/*"
-        element={<Janitors />}
-      />
+        element={<Dashboard />}>
+        <Route
+          path="*/janitors"
+          element={<Janitors />}
+        />{' '}
+      </Route>
 
       <Route
         path="/auth/*"

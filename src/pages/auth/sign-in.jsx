@@ -46,7 +46,7 @@ export function SignIn() {
             </div>
           </CardBody>
           <CardFooter className="pt-0">
-            <a href="/dashboard">
+            <a href="/dashboard/janitors">
               {' '}
               <Button
                 variant="gradient"
