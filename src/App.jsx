@@ -7,12 +7,9 @@ function App() {
     <Routes>
       <Route
         path="/dashboard/*"
-        element={<Dashboard />}
-      />
-      <Route
-        path="/dashboard/janitors"
         element={<Janitors />}
       />
+
       <Route
         path="/auth/*"
         element={<Auth />}
