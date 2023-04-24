@@ -46,14 +46,14 @@ export function SignIn() {
             </div>
           </CardBody>
           <CardFooter className="pt-0">
-            <a href="/dashboard/janitors">
+            <Link to="/dashboard/janitors">
               {' '}
               <Button
                 variant="gradient"
                 fullWidth>
                 Sign In
               </Button>
-            </a>
+            </Link>
 
             <Typography
               variant="small"
