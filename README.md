@@ -65,7 +65,13 @@ _Below is an example of how you can instruct your audience on installing and set
    npm run dev;
    ```
 
-<!-- SIGN IN SCREEN -->
+<!-- Demonstration -->
+## Demonstration
+### Sign Screen
+### Register Screen
+### Janitors View
+### Collectors View
+### MCPs View
  
 
 
@@ -84,7 +90,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 
