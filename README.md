@@ -1,15 +1,20 @@
 # uwc-ui
 
+<!-- ABOUT THE PROJECT UWC 2.0 -->
+
+An UWC 2.0 is a project for the subject Software Engineering at HCMUT in Semester 221, which provides an effective solution for urban waste collection problems.
+
+## Members
+- Nguyễn Trọng Duy - 1852296
+- Phạm Quang Khánh - 1852459
+- Bùi Trung Đức - 1852324
+- Nguyễn Thế Lộc - 1952825
+- Nguyễn Khương Duy - 1952615
 
 
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -22,7 +27,6 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [![Vite][Vite.js]][Vite-url]
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -58,7 +62,8 @@ _Below is an example of how you can instruct your audience on installing and set
    npm run dev;
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- SIGN IN SCREEN -->
+ 
 
 
 
@@ -67,12 +72,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
 
 
-<!-- LICENSE -->
-## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
