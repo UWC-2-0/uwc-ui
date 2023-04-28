@@ -67,7 +67,9 @@ _Below is an example of how you can instruct your audience on installing and set
 
 <!-- Demonstration -->
 ## Demonstration
+
 ### Sign Screen
+![image](documents/Images/signin.jpg)
 ### Register Screen
 ### Janitors View
 ### Collectors View
