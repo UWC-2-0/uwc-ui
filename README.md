@@ -71,9 +71,13 @@ _Below is an example of how you can instruct your audience on installing and set
 ### Sign Screen
 ![image](documents/Images/signin.jpg)
 ### Register Screen
+![image](documents/Images/res.jpg)
 ### Janitors View
+![image](documents/Images/janitors.jpg)
 ### Collectors View
+![image](documents/Images/collectors.jpg)
 ### MCPs View
+![image](documents/Images/mcps.jpg)
  
 
 
